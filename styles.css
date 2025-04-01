@@ -17,7 +17,7 @@ body {
     height: 100vh;
 }
 
-/* Title Styling (Like "Any beer in a matter of seconds") */
+/* Title Styling*/
 h1 {
     font-family: "Playfair Display", serif;
     font-size: 5vw;
@@ -27,7 +27,7 @@ h1 {
     margin: 0;
 }
 
-/* Subtitle Styling (Like "Make your own personalized...") */
+/* Subtitle Styling */
 p {
     font-family: "Inter", sans-serif;
     font-size: 1.5vw;
@@ -52,3 +52,20 @@ p {
 h1, p {
     animation: fadeIn 1.5s ease-out forwards;
 }
+
+.scroll-container {
+    height: 100vh;
+    overflow-x: hidden; 
+}
+
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw; 
+    height: 100vh;
+    text-align: center;
+}
+
+#section1 { background: #131313; }
+#section2 { background: #461818e7; color: white; }

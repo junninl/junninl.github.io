@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Junning</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Hello, I'm Junning</h1>
-        <p>Software Engineer | Cloud Enthusiast | Crocheter</p>
-        <canvas id="background"></canvas>
+
+    <div class="scroll-container">
+
+        <section class="section" id="section1">
+            <div class="content">
+                <h1>Hello, I'm Junning</h1>
+                <p>Software Engineer | Cloud Enthusiast | Crocheter</p>
+            </div>
+        </section>
+
+        <section class="section" id="section2">
+            <div class="content">
+                <h1>Discover More</h1>
+                <p>Scroll vertically to explore!</p>
+            </div>
+        </section>
+
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
+
 </body>
 </html>
