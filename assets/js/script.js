@@ -12,7 +12,40 @@
     console.warn('Error loading nav.html:', err);
   }
 
+  // keep CSS var --nav-height in sync with actual nav height
+  function updateNavHeight() {
+    const nav = document.querySelector('.top-nav');
+    if (!nav) return;
+    // Measure inner content height so var can both grow and shrink
+    const inner = nav.querySelector('.nav-inner') || nav;
+    const h = Math.ceil(inner.getBoundingClientRect().height);
+    document.documentElement.style.setProperty('--nav-height', `${h}px`);
+  }
+
+  // update on key lifecycle events
+  window.addEventListener('load', updateNavHeight);
+  window.addEventListener('resize', updateNavHeight);
+
+  // update once webfonts are ready, since they can change layout
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(updateNavHeight).catch(() => {});
+  }
+
+  // observe nav element for size changes (e.g., wrapping on small screens)
+  const tryObserveNav = () => {
+    const nav = document.querySelector('.top-nav');
+    if (!nav || !('ResizeObserver' in window)) return;
+    const inner = nav.querySelector('.nav-inner') || nav;
+    const ro = new ResizeObserver(updateNavHeight);
+    ro.observe(inner);
+  };
+
   document.addEventListener('DOMContentLoaded', function () {
+    // initial measurement
+    updateNavHeight();
+    tryObserveNav();
+
+    // mark active link in nav
     const links = document.querySelectorAll('.top-nav a');
     if (!links.length) return;
     const path = window.location.pathname.split('/').pop() || 'index.html';
